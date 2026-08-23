@@ -32,6 +32,7 @@
     img,svg{display:block;max-width:100%}
     button,a{touch-action:manipulation}
     :focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     .skip-link{
       position:fixed;left:16px;top:12px;z-index:100;transform:translateY(-150%);
       padding:10px 16px;border-radius:999px;background:var(--ink);color:white;text-decoration:none
@@ -118,6 +119,10 @@
     .price-row span:first-child{color:var(--muted)}
     .price-row i{height:1px;flex:1;border-top:1px dotted rgba(41,34,38,.25)}
     .price-row strong{white-space:nowrap}
+    .price-row-dual{display:grid;grid-template-columns:minmax(0,1fr) 72px 72px;gap:12px}
+    .price-row-dual strong{text-align:right}
+    .price-columns{padding:0 0 6px;color:var(--rose-dark);font-size:.73rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+    .price-note{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:.86rem;color:var(--muted)}
     .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .review{
       border:1px solid var(--line);border-radius:var(--radius);padding:26px;background:white;
@@ -191,6 +196,8 @@
       .price-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}
       .price-row i{display:none}
       .price-row span:first-child{min-width:0;overflow-wrap:anywhere}
+      .price-row-dual{grid-template-columns:minmax(0,1fr) 48px 48px;gap:7px;font-size:.82rem}
+      .price-columns{font-size:.64rem}
       .hours{grid-template-columns:1fr;gap:2px}
       .hours strong{margin-bottom:10px}
       .cta-box{padding:30px 20px}
@@ -212,7 +219,7 @@
         <a href="#prices">Prices</a>
         <a href="#reviews">Reviews</a>
         <a href="#visit">Visit</a>
-        <a class="btn btn-primary" href="tel:+447853614289">Book now</a>
+        <a class="btn btn-primary" href="tel:+447923679666">Book now</a>
       </nav>
     </div>
   </header>
@@ -225,7 +232,7 @@
           <h1>Polished to <span class="accent">perfection.</span></h1>
           <p>Creative nail design, flawless finishes and a relaxing salon experience in the heart of Knowle, Solihull.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="tel:+447853614289">Call to book</a>
+            <a class="btn btn-primary" href="tel:+447923679666">Call to book</a>
             <a class="btn btn-secondary" href="#prices">View price list</a>
           </div>
           <div class="trust-row">
@@ -266,37 +273,54 @@
         <div class="price-intro">
           <div class="eyebrow">Price menu</div>
           <h2>Beautiful results, clearly priced.</h2>
-          <p>Selected treatments shown below. Prices may change, so please confirm when booking.</p>
-          <a class="btn btn-primary" href="tel:+447853614289">Book by phone</a>
+          <p>Our current treatment menu. Please confirm your chosen service when booking.</p>
+          <a class="btn btn-primary" href="tel:+447923679666">Book by phone</a>
         </div>
         <div class="price-list" aria-label="Treatment price list">
           <div class="price-group">
-            <h3>Nail Extensions</h3>
-            <div class="price-row"><span>Acrylic — full set</span><i></i><strong>£30</strong></div>
-            <div class="price-row"><span>Acrylic with gel colour</span><i></i><strong>£38</strong></div>
-            <div class="price-row"><span>Permanent white tip</span><i></i><strong>£32</strong></div>
-            <div class="price-row"><span>Ombré — full set</span><i></i><strong>£40</strong></div>
+            <h3>Extensions</h3>
+            <div class="price-row price-row-dual price-columns" aria-hidden="true"><span>Treatment</span><strong>Full set</strong><strong>Infill</strong></div>
+            <div class="price-row price-row-dual"><span>Acrylic extension</span><strong><span class="sr-only">Full set </span>£35</strong><strong><span class="sr-only">Infill </span>£30</strong></div>
+            <div class="price-row price-row-dual"><span>Acrylic &amp; gel colour</span><strong><span class="sr-only">Full set </span>£38</strong><strong><span class="sr-only">Infill </span>£33</strong></div>
+            <div class="price-row price-row-dual"><span>Acrylic colour powder</span><strong><span class="sr-only">Full set </span>£38</strong><strong><span class="sr-only">Infill </span>£33</strong></div>
+            <div class="price-row price-row-dual"><span>Acrylic ombré</span><strong><span class="sr-only">Full set </span>£40</strong><strong><span class="sr-only">Infill </span>£35</strong></div>
+            <div class="price-row price-row-dual"><span>Permanent white tips</span><strong><span class="sr-only">Full set </span>£38</strong><strong><span class="sr-only">Infill </span>£33</strong></div>
+            <div class="price-row price-row-dual"><span>Full set acrylic toes</span><strong><span class="sr-only">Full set </span>£35</strong><strong><span class="sr-only">Infill </span>£30</strong></div>
+            <div class="price-row price-row-dual"><span>Full set acrylic toes &amp; gel</span><strong><span class="sr-only">Full set </span>£38</strong><strong><span class="sr-only">Infill </span>£35</strong></div>
+            <div class="price-row price-row-dual"><span>Acrylic 2 big toes</span><strong><span class="sr-only">Full set </span>£10</strong><strong><span class="sr-only">Infill </span>£8</strong></div>
           </div>
           <div class="price-group">
-            <h3>Natural Nails</h3>
-            <div class="price-row"><span>Manicure</span><i></i><strong>£18</strong></div>
-            <div class="price-row"><span>Spa pedicure</span><i></i><strong>£35</strong></div>
-            <div class="price-row"><span>Shellac manicure</span><i></i><strong>£30</strong></div>
-            <div class="price-row"><span>Shellac pedicure</span><i></i><strong>£40</strong></div>
+            <h3>BIAB / Builder Gel</h3>
+            <div class="price-row price-row-dual price-columns" aria-hidden="true"><span>Treatment</span><strong>Full set</strong><strong>Infill</strong></div>
+            <div class="price-row price-row-dual"><span>BIAB on natural nail</span><strong><span class="sr-only">Full set </span>£35</strong><strong><span class="sr-only">Infill </span>£32</strong></div>
+            <div class="price-row price-row-dual"><span>BIAB with extension</span><strong><span class="sr-only">Full set </span>£40</strong><strong><span class="sr-only">Infill </span>£35</strong></div>
+            <div class="price-row price-row-dual"><span>BIAB ombré</span><strong><span class="sr-only">Full set </span>£45</strong><strong><span class="sr-only">Infill </span>£40</strong></div>
           </div>
           <div class="price-group">
-            <h3>Builder Gel & SNS</h3>
-            <div class="price-row"><span>Builder gel — full set</span><i></i><strong>£38</strong></div>
-            <div class="price-row"><span>Builder gel — infill</span><i></i><strong>£35</strong></div>
-            <div class="price-row"><span>SNS on natural nail</span><i></i><strong>£35</strong></div>
-            <div class="price-row"><span>SNS on extension</span><i></i><strong>£40</strong></div>
+            <h3>Manicure &amp; Pedicure</h3>
+            <div class="price-row"><span>Classic pedicure &amp; Shellac</span><i></i><strong>£40</strong></div>
+            <div class="price-row"><span>Classic pedicure</span><i></i><strong>£33</strong></div>
+            <div class="price-row"><span>Deluxe pedicure &amp; Shellac</span><i></i><strong>£50</strong></div>
+            <div class="price-row"><span>Deluxe pedicure</span><i></i><strong>£43</strong></div>
+            <div class="price-row"><span>Luxury spa pedi &amp; Shellac</span><i></i><strong>£60</strong></div>
+            <div class="price-row"><span>Luxury spa pedicure</span><i></i><strong>£53</strong></div>
+            <div class="price-row"><span>Manicure</span><i></i><strong>£15</strong></div>
+            <div class="price-row"><span>Manicure &amp; gel colour</span><i></i><strong>£30</strong></div>
+            <div class="price-row"><span>Gel colour only</span><i></i><strong>£25</strong></div>
+            <div class="price-row"><span>Take off gel colour only</span><i></i><strong>£10</strong></div>
+            <div class="price-row"><span>Take off acrylic / BIAB only</span><i></i><strong>£12</strong></div>
+            <p class="price-note">Redo removal: add £3 for gel colour or £5 for acrylic / BIAB.</p>
           </div>
           <div class="price-group">
-            <h3>Nail Art & Beauty</h3>
-            <div class="price-row"><span>French / white tip</span><i></i><strong>from £3</strong></div>
-            <div class="price-row"><span>Chrome / marble / cat eye</span><i></i><strong>from £5</strong></div>
-            <div class="price-row"><span>Eyebrow wax</span><i></i><strong>from £10</strong></div>
-            <div class="price-row"><span>Lash lift & tint</span><i></i><strong>£35</strong></div>
+            <h3>Other Services</h3>
+            <div class="price-row"><span>Diamonds ×3</span><i></i><strong>£1</strong></div>
+            <div class="price-row"><span>Diamonds ×10</span><i></i><strong>£3</strong></div>
+            <div class="price-row"><span>Cat eyes</span><i></i><strong>from £5</strong></div>
+            <div class="price-row"><span>Chrome</span><i></i><strong>£5</strong></div>
+            <div class="price-row"><span>Extra length</span><i></i><strong>from £5</strong></div>
+            <div class="price-row"><span>Nail trim</span><i></i><strong>£10</strong></div>
+            <div class="price-row"><span>Nail repair</span><i></i><strong>£5</strong></div>
+            <div class="price-row"><span>French tips</span><i></i><strong>£5</strong></div>
           </div>
         </div>
       </div>
@@ -327,7 +351,7 @@
             <h3>VQA Nails Knowle</h3>
             <div class="contact-list">
               <div><strong>Address</strong><a href="https://www.google.com/maps/search/?api=1&amp;query=13+St+Johns+Way+Knowle" target="_blank" rel="noopener">13 St Johns Way, Knowle</a></div>
-              <div><strong>Phone</strong><a href="tel:+447853614289">07853 614 289</a></div>
+              <div><strong>Phone</strong><a href="tel:+447923679666">07923 679 666</a></div>
             </div>
             <div class="hours">
               <span>Monday – Saturday</span><strong>9:30 – 18:30</strong>
@@ -350,7 +374,7 @@
       <div class="wrap">
         <div class="cta-box">
           <div><h2>Ready for your next set?</h2><p>Call the salon to reserve your appointment.</p></div>
-          <a class="btn" href="tel:+447853614289">Call 07853 614 289</a>
+          <a class="btn" href="tel:+447923679666">Call 07923 679 666</a>
         </div>
       </div>
     </section>
@@ -363,7 +387,7 @@
     </div>
   </footer>
 
-  <a class="mobile-book" href="tel:+447853614289" aria-label="Call VQA Nails Knowle to book">Book now · 07853 614 289</a>
+  <a class="mobile-book" href="tel:+447923679666" aria-label="Call VQA Nails Knowle to book">Book now · 07923 679 666</a>
 
   <script>
     const menuButton = document.querySelector('.menu-btn');
